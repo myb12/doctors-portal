@@ -14,7 +14,6 @@ const Appoinments = ({ date }) => {
     const [appointments, setAppointments] = useState([]);
 
     const convertedDate = date.toLocaleDateString();
-    console.log(convertedDate);
 
     useEffect(() => {
         const url = `http://localhost:5000/appointments?email=${user.email}&date=${convertedDate}`;
