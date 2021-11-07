@@ -28,8 +28,8 @@ const Navigation = () => {
                         Doctors Portal
                     </Typography>
                     <Button color="inherit">{user.displayName}</Button>
-                    <Link to="/home"><Button color="inherit">Home</Button></Link>
-                    <Link to="/appointment"><Button color="inherit">Appointment</Button></Link>
+                    <Link to="/home" style={{ textDecoration: 'none', color: 'white' }}><Button color="inherit">Home</Button></Link>
+                    <Link to="/appointment" style={{ textDecoration: 'none', color: 'white' }}><Button color="inherit">Appointment</Button></Link>
                     {
                         user?.email ?
                             <Box>

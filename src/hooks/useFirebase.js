@@ -1,6 +1,6 @@
 import initializeFirebase from "../Pages/Login/Login/Firebase/firebase.init";
 import { useState, useEffect } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider, updateProfile} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider, updateProfile } from "firebase/auth";
 
 
 // initialize firebase app
@@ -22,6 +22,8 @@ const useFirebase = () => {
 
                 const newUser = { email, displayName: name };
                 setUser(newUser);
+                //save user to db
+                saveUser(email, name);
                 // send name to firebase after creation
                 updateProfile(auth.currentUser, {
                     displayName: name
@@ -83,6 +85,19 @@ const useFirebase = () => {
             // An error happened.
         })
             .finally(() => setIsLoading(false));
+    }
+
+    const saveUser = (email, displayName) => {
+        const user = { email, displayName }
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => { })
     }
 
     return {
