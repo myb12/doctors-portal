@@ -17,6 +17,7 @@ const verticalCenter = {
     height: 400
 }
 
+
 const Banner = () => {
     return (
         <Container style={bannerBg} sx={{ flexGrow: 1 }}>
