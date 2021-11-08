@@ -17,7 +17,7 @@ const Appoinments = ({ date }) => {
     const convertedDate = date.toLocaleDateString();
 
     useEffect(() => {
-        const url = `http://localhost:5000/appointments?email=${user.email}&date=${convertedDate}`;
+        const url = `https://afternoon-everglades-20712.herokuapp.com/appointments?email=${user.email}&date=${convertedDate}`;
 
         fetch(url, {
             headers: {
